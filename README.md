@@ -1,4 +1,4 @@
-# fe-test-exchangeratesapi
+# Simple Foreign Exchange Currency
 
 ## Project setup
 ```
