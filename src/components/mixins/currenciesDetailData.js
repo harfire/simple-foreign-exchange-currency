@@ -4,137 +4,137 @@ export default {
       currenciesDetail: [
         {
           id: 'USD',
-          descriptions: 'United states dollar',
+          descriptions: 'United states dollar'
         },
         {
           id: 'EUR',
-          descriptions: 'Euro',
+          descriptions: 'Euro'
         },
         {
           id: 'JPY',
-          descriptions: 'Japanese yen',
+          descriptions: 'Japanese yen'
         },
         {
           id: 'BGN',
-          descriptions: 'Bulgarian lev',
+          descriptions: 'Bulgarian lev'
         },
         {
           id: 'CZK',
-          descriptions: 'Czech koruna',
+          descriptions: 'Czech koruna'
         },
         {
           id: 'DKK',
-          descriptions: 'Danish krone',
+          descriptions: 'Danish krone'
         },
         {
           id: 'GBP',
-          descriptions: 'Pound sterling',
+          descriptions: 'Pound sterling'
         },
         {
           id: 'HUF',
-          descriptions: 'Hungarian forint',
+          descriptions: 'Hungarian forint'
         },
         {
           id: 'PLN',
-          descriptions: 'Polish zloty',
+          descriptions: 'Polish zloty'
         },
         {
           id: 'RON',
-          descriptions: 'Romanian leu',
+          descriptions: 'Romanian leu'
         },
         {
           id: 'SEK',
-          descriptions: 'Swedish krona',
+          descriptions: 'Swedish krona'
         },
         {
           id: 'CHF',
-          descriptions: 'Swiss franc',
+          descriptions: 'Swiss franc'
         },
         {
           id: 'ISK',
-          descriptions: 'Icelandic krona',
+          descriptions: 'Icelandic krona'
         },
         {
           id: 'NOK',
-          descriptions: 'Norwegian krone',
+          descriptions: 'Norwegian krone'
         },
         {
           id: 'HRK',
-          descriptions: 'Croatian kuna',
+          descriptions: 'Croatian kuna'
         },
         {
           id: 'RUB',
-          descriptions: 'Russian rouble',
+          descriptions: 'Russian rouble'
         },
         {
           id: 'TRY',
-          descriptions: 'Turkish lira',
+          descriptions: 'Turkish lira'
         },
         {
           id: 'AUD',
-          descriptions: 'Australian dollar',
+          descriptions: 'Australian dollar'
         },
         {
           id: 'BRL',
-          descriptions: 'Brazilian real',
+          descriptions: 'Brazilian real'
         },
         {
           id: 'CAD',
-          descriptions: 'Canadian dollar',
+          descriptions: 'Canadian dollar'
         },
         {
           id: 'CNY',
-          descriptions: 'Chinese yuan renminbi',
+          descriptions: 'Chinese yuan renminbi'
         },
         {
           id: 'HKD',
-          descriptions: 'Hong Kong dollar',
+          descriptions: 'Hong Kong dollar'
         },
         {
           id: 'IDR',
-          descriptions: 'Indonesian rupiah',
+          descriptions: 'Indonesian rupiah'
         },
         {
           id: 'ILS',
-          descriptions: 'Israeli shekel',
+          descriptions: 'Israeli shekel'
         },
         {
           id: 'INR',
-          descriptions: 'Indian rupee',
+          descriptions: 'Indian rupee'
         },
         {
           id: 'KRW',
-          descriptions: 'South Korean won',
+          descriptions: 'South Korean won'
         },
         {
           id: 'MXN',
-          descriptions: 'Mexican peso',
+          descriptions: 'Mexican peso'
         },
         {
           id: 'MYR',
-          descriptions: 'Malaysian ringgit',
+          descriptions: 'Malaysian ringgit'
         },
         {
           id: 'NZD',
-          descriptions: 'New Zealand dollar',
+          descriptions: 'New Zealand dollar'
         },
         {
           id: 'PHP',
-          descriptions: 'Philippine piso',
+          descriptions: 'Philippine piso'
         },
         {
           id: 'SGD',
-          descriptions: 'Singapore dollar',
+          descriptions: 'Singapore dollar'
         },
         {
           id: 'THB',
-          descriptions: 'Thai baht',
+          descriptions: 'Thai baht'
         },
         {
           id: 'ZAR',
-          descriptions: 'South African rand',
-        },
-      ],
+          descriptions: 'South African rand'
+        }
+      ]
     };
-  },
+  }
 };

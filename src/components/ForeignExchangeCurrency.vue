@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <h1 class="title is-4">Foreign Exchange Currency AppExercise</h1>
-    <br>
+    <h1 class="title is-4">Foreign Exchange Currency App Exercise</h1>
+    <br />
     <div class="content">
       <div class="columns is-centered">
         <div class="column is-4 has-text-left">
@@ -19,20 +19,28 @@
             <div class="has-text-left box box--custom">
               <div class="box--custom--title">
                 <div class="columns">
-                  <div class="column is-full is-italic no-pad">{{ baseRates.base }} - {{ getCurrencyDesc(baseRates.base) }}</div>
+                  <div class="column is-full is-italic no-pad">
+                    {{ baseRates.base }} - {{ getCurrencyDesc(baseRates.base) }}
+                  </div>
                 </div>
                 <div class="columns">
                   <div class="column has-text-weight-bold">{{ baseRates.base }}</div>
                   <div class="column is-one-quarter has-text-weight-bold has-text-right">
                     <template v-if="!updateCurrencyValue">
-                      <a @click="updateCurrencyValue = true">{{ getCurrencyValue(baseRates.base, baseRates.rates ) }}</a>
+                      <a @click="updateCurrencyValue = true">{{ getCurrencyValue(baseRates.base, baseRates.rates) }}</a>
                     </template>
                     <template v-else>
                       <div class="columns">
                         <div class="column">
                           <div class="field has-addons">
                             <div class="control">
-                              <input class="input has-text-weight-bold has-text-right" v-model.number="newBaseRateValue" @blur="updateCurrencyValue = false" type="text" placeholder="New Base Rate">
+                              <input
+                                class="input has-text-weight-bold has-text-right"
+                                v-model.number="newBaseRateValue"
+                                @blur="updateCurrencyValue = false"
+                                type="text"
+                                placeholder="New Base Rate"
+                              />
                             </div>
                           </div>
                         </div>
@@ -65,7 +73,7 @@
                     </div>
                   </div>
                   <div class="column right-col is-one-fifth has-text-weight-bold has-text-centered border-left">
-                    <a @click="deleteItemList(item)">x</a>
+                    <a @click="deleteItemList(item)">✖</a>
                   </div>
                 </div>
               </div>
@@ -90,6 +98,7 @@
                     </div>
                   </div>
                 </template>
+
                 <!-- Warning Notif -->
                 <template v-if="showWarningNotif">
                   <div class="columns no-margin-bottom">
@@ -102,35 +111,37 @@
                   </div>
                 </template>
 
-                <div class="columns no-margin-bottom">
-                  <div class="column has-text-weight-bold">
-                    <input class="input is-full" type="text" v-model="inputNew" placeholder="Example: IDR">
+                <form @submit.prevent="submitNewCurrency(inputNew)">
+                  <div class="columns no-margin-bottom">
+                    <div class="column has-text-weight-bold">
+                      <input class="input is-full" type="text" v-model="inputNew" placeholder="Example: IDR" />
+                    </div>
+                    <div class="column is-one-third has-text-weight-bold has-text-right">
+                      <button type="submit" class="button is-info is-fullwidth">Submit</button>
+                    </div>
                   </div>
-                  <div class="column is-one-third has-text-weight-bold has-text-right">
-                    <button class="button is-info is-fullwidth" @click="submitNewCurrency(inputNew)">Submit</button>
-                  </div>
-                </div>
+                </form>
               </div>
             </div>
           </template>
         </div>
         <div class="column is-4 has-text-right">
-          <h5>Available Currency</h5>
-          <p v-for="item in currenciesDetail" :key="item.id" class="is-size-7 no-margin-bottom has-text-grey">
-            <span class="has-text-weight-bold has-text-grey-dark">{{ item.id }}</span> - {{ item.descriptions }}
-          </p>
+          <div class="info-currency-cont">
+            <h5>Available Currency</h5>
+            <p v-for="item in currenciesDetail" :key="item.id" class="is-size-7 no-margin-bottom has-text-grey">
+              <span class="has-text-weight-bold has-text-grey-dark">{{ item.id }}</span> - {{ item.descriptions }}
+            </p>
+          </div>
         </div>
       </div>
-      <p class="footer">
-        <strong>Haris Rahman</strong>&nbsp;<small>|</small>&nbsp;<small>+628159156249</small>
-      </p>
+      <p class="footer"><strong>Haris Rahman</strong>&nbsp;<small>|</small>&nbsp;<small>+628159156249</small></p>
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-import currencyDetail from './mixins/currenciesDetailData.js'
+import currencyDetail from './mixins/currenciesDetailData.js';
 
 export default {
   name: 'ForeignExchangeCurrency',
@@ -147,7 +158,7 @@ export default {
       showErrorNotif: false,
       showWarningNotif: false,
       updateCurrencyValue: false,
-      baseCurrencyValue: 10,
+      baseCurrencyValue: 10
     };
   },
   computed: {
@@ -157,32 +168,30 @@ export default {
       },
       set(val) {
         this.baseCurrencyValue = val;
-      },
-    },
+      }
+    }
   },
-  mounted () {
-    axios
-      .get('https://api.exchangeratesapi.io/latest?base=USD')
-      .then(response => {
-        this.baseRates = {
-          base: response.data.base,
-          date: response.data.date,
-          rates: response.data.rates,
-          descriptions: this.currenciesDetail,
-        };
+  mounted() {
+    axios.get('https://api.exchangeratesapi.io/latest?base=USD').then((response) => {
+      this.baseRates = {
+        base: response.data.base,
+        date: response.data.date,
+        rates: response.data.rates,
+        descriptions: this.currenciesDetail
+      };
 
-        this.loading = false;
-      });
+      this.loading = false;
+    });
   },
   methods: {
     getCurrencyDesc(code) {
-      return this.currenciesDetail.find(id => id.id === code).descriptions;
+      return this.currenciesDetail.find((id) => id.id === code).descriptions;
     },
     getCurrencyValue(code, val) {
-      return ((val[code]) * this.baseCurrencyValue);
+      return val[code] * this.baseCurrencyValue;
     },
     getBaseCurrencyValue(code, val) {
-      return ((val[code]));
+      return val[code];
     },
     submitNewCurrency(value) {
       // Reset Warning
@@ -190,8 +199,8 @@ export default {
       this.showWarningNotif = false;
 
       const symbol = value.toUpperCase();
-      const data = this.currenciesDetail.find(id => id.id === symbol);
-      const excistingData = this.lists.find(id => id === symbol);
+      const data = this.currenciesDetail.find((id) => id.id === symbol);
+      const excistingData = this.lists.find((id) => id === symbol);
 
       // Check Data
       if (data && data.id) {
@@ -211,11 +220,12 @@ export default {
     },
     deleteItemList(id) {
       this.loading = true;
-      this.lists = this.lists.filter(item => item !== id);
+      this.lists = this.lists.filter((item) => item !== id);
       this.loading = false;
     },
     formatNumber(value = 0) {
       const val = (value / 1).toFixed(2).replace('.', ',');
+
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     },
     hideErrorNotification() {
@@ -224,8 +234,8 @@ export default {
     hideWarningNotification() {
       this.showWarningNotif = false;
     }
-  },
-}
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -295,5 +305,11 @@ export default {
 
 .no-border {
   border-width: 0 !important;
+}
+
+.info-currency-cont {
+  position: fixed;
+  top: 50px;
+  right: 50px;
 }
 </style>

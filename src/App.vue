@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <ForeignExchangeCurrency msg="Foreign Exchange Currency using Vue.js Framework"/>
+    <ForeignExchangeCurrency msg="Foreign Exchange Currency using Vue.js Framework" />
   </div>
 </template>
 
@@ -10,13 +10,13 @@ import ForeignExchangeCurrency from './components/ForeignExchangeCurrency.vue';
 export default {
   name: 'app',
   components: {
-    ForeignExchangeCurrency,
-  },
-}
+    ForeignExchangeCurrency
+  }
+};
 </script>
 
 <style lang="scss">
-@import "./assets/sass/main.scss";
+@import './assets/sass/main.scss';
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
