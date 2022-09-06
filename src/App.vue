@@ -1,19 +1,13 @@
 <template>
   <div id="app">
-    <ForeignExchangeCurrency msg="Foreign Exchange Currency using Vue.js Framework" />
+    <nav>
+      <router-link to="/">
+        Home
+      </router-link>
+    </nav>
+    <router-view />
   </div>
 </template>
-
-<script>
-import ForeignExchangeCurrency from './components/ForeignExchangeCurrency.vue';
-
-export default {
-  name: 'app',
-  components: {
-    ForeignExchangeCurrency
-  }
-};
-</script>
 
 <style lang="scss">
 @import './assets/sass/main.scss';

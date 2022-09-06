@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <h1 class="title is-4">Foreign Exchange Currency App Exercise</h1>
+    <h1 class="title is-4">
+      Foreign Exchange Currency App Exercise
+    </h1>
     <br />
     <div class="content">
       <div class="columns is-centered">
@@ -24,7 +26,9 @@
                   </div>
                 </div>
                 <div class="columns">
-                  <div class="column has-text-weight-bold">{{ baseRates.base }}</div>
+                  <div class="column has-text-weight-bold">
+                    {{ baseRates.base }}
+                  </div>
                   <div class="column is-one-quarter has-text-weight-bold has-text-right">
                     <template v-if="!updateCurrencyValue">
                       <a @click="updateCurrencyValue = true">{{ getCurrencyValue(baseRates.base, baseRates.rates) }}</a>
@@ -35,11 +39,11 @@
                           <div class="field has-addons">
                             <div class="control">
                               <input
-                                class="input has-text-weight-bold has-text-right"
                                 v-model.number="newBaseRateValue"
-                                @blur="updateCurrencyValue = false"
+                                class="input has-text-weight-bold has-text-right"
                                 type="text"
                                 placeholder="New Base Rate"
+                                @blur="updateCurrencyValue = false"
                               />
                             </div>
                           </div>
@@ -50,7 +54,11 @@
                 </div>
               </div>
 
-              <div v-for="(item, index) in lists" :key="`${index + 1}`" class="box--custom--item">
+              <div
+                v-for="(item, index) in lists"
+                :key="`${index + 1}`"
+                class="box--custom--item"
+              >
                 <div class="columns">
                   <div class="column left-col">
                     <div class="columns no-margin-bottom">
@@ -78,7 +86,10 @@
                 </div>
               </div>
 
-              <div v-if="!lists.length" class="box--custom--item no-border no-pad-left">
+              <div
+                v-if="!lists.length"
+                class="box--custom--item no-border no-pad-left"
+              >
                 <div class="columns">
                   <div class="column">
                     Please Add New Currency
@@ -92,7 +103,10 @@
                   <div class="columns no-margin-bottom">
                     <div class="column">
                       <div class="notification is-danger">
-                        <button @click="hideErrorNotification" class="delete"></button>
+                        <button
+                          class="delete"
+                          @click="hideErrorNotification"
+                        ></button>
                         Currencies not available!
                       </div>
                     </div>
@@ -104,7 +118,10 @@
                   <div class="columns no-margin-bottom">
                     <div class="column">
                       <div class="notification is-warning">
-                        <button @click="hideWarningNotification" class="delete"></button>
+                        <button
+                          class="delete"
+                          @click="hideWarningNotification"
+                        ></button>
                         Currencies already exist!
                       </div>
                     </div>
@@ -114,10 +131,20 @@
                 <form @submit.prevent="submitNewCurrency(inputNew)">
                   <div class="columns no-margin-bottom">
                     <div class="column has-text-weight-bold">
-                      <input class="input is-full" type="text" v-model="inputNew" placeholder="Example: IDR" />
+                      <input
+                        v-model="inputNew"
+                        class="input is-full"
+                        type="text"
+                        placeholder="Example: IDR"
+                      />
                     </div>
                     <div class="column is-one-third has-text-weight-bold has-text-right">
-                      <button type="submit" class="button is-info is-fullwidth">Submit</button>
+                      <button
+                        type="submit"
+                        class="button is-info is-fullwidth"
+                      >
+                        Submit
+                      </button>
                     </div>
                   </div>
                 </form>
@@ -128,13 +155,19 @@
         <div class="column is-4 has-text-right">
           <div class="info-currency-cont">
             <h5>Available Currency</h5>
-            <p v-for="item in currenciesDetail" :key="item.id" class="is-size-7 no-margin-bottom has-text-grey">
+            <p
+              v-for="item in currenciesDetail"
+              :key="item.id"
+              class="is-size-7 no-margin-bottom has-text-grey"
+            >
               <span class="has-text-weight-bold has-text-grey-dark">{{ item.id }}</span> - {{ item.descriptions }}
             </p>
           </div>
         </div>
       </div>
-      <p class="footer"><strong>Haris Rahman</strong>&nbsp;<small>|</small>&nbsp;<small>+628159156249</small></p>
+      <p class="footer">
+        <strong>Haris Rahman</strong>&nbsp;<small>|</small>&nbsp;<small>+628159156249</small>
+      </p>
     </div>
   </div>
 </template>
@@ -145,10 +178,10 @@ import currencyDetail from './mixins/currenciesDetailData.js';
 
 export default {
   name: 'ForeignExchangeCurrency',
+  mixins: [currencyDetail],
   props: {
     msg: String
   },
-  mixins: [currencyDetail],
   data() {
     return {
       loading: true,
